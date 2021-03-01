@@ -8,7 +8,6 @@ class Wagon
 
   def initialize(wagon_type)
     @wagon_type = wagon_type
-    validate!
   end
 
   def validate!
