@@ -40,8 +40,8 @@ class Station
     raise ArgumentError, "Название станции не может быть пустым" if @station_name.empty?
   end
 
-  def across_train_on_station(&block)
-    trains.each_with_index(&block) if block_given?
+  def across_train_on_station
+    trains.each_with_index { |train, index| yield(train, index) } if block_given?
   end
 
 end
