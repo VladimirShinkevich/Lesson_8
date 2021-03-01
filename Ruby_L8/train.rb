@@ -80,8 +80,8 @@ class Train
     @current_station.train_arrived(self)
   end
 
-  def across_wagon_to_train(&block)
-    wagons.each_with_index(&block) if block_given?
+  def across_wagon_to_train
+    wagons.each_with_index { |wagon, index| yield(wagon, index) } if block_given?
   end
 
   def validate!
